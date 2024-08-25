@@ -1,0 +1,24 @@
+.headerBg{
+    background-color: #0d253f;
+}
+
+.header{
+    padding: 20px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+.btnList{
+    display: flex;
+    gap: 20px;
+}
+
+.btnList a{
+    padding: 20px 15px;
+    display: block;
+    color: #fff;
+    font-size: 1.3rem;
+}

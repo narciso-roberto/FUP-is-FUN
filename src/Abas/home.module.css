@@ -1,0 +1,33 @@
+.mainBg{
+    background-color: #0a1d31;
+}
+
+.main{
+    max-width: 1800px;
+    margin: 0px auto;
+}
+
+.main h1{
+    color: #fff;
+    font-size: 3rem;
+    padding: 50px 0px;
+}
+
+.movies{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.movies div{
+    /* height: 350px; */
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    grid-template-columns: 250px;
+}
+
+.movies img{
+    height: 100%;
+    border-radius: 10px;
+}
