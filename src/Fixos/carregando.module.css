@@ -1,0 +1,23 @@
+.loadingBG{
+    background-color: #0d253f;
+    display: flex;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading{
+    display: inline-block;
+    border: 8px solid #c6e1ff;
+    border-top-color: #01b4e4;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    animation: load 1s infinite;
+}
+
+@keyframes load {
+    to{
+        transform: rotate(1turn);
+    }
+}

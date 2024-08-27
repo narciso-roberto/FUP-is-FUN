@@ -13,3 +13,13 @@ img{
     display: block;
     max-width: 100%;
 }
+
+body{
+    height: 100vh;
+}
+
+.site {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}

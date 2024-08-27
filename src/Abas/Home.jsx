@@ -2,16 +2,17 @@ import React from 'react'
 import style from './home.module.css'
 import { GlobalContext } from '../Contexto/ContextoGeral'
 import Modal from '../Fixos/Modal';
+import Carregando from '../Fixos/Carregando';
 
 import Stars from '../Fixos/Stars';
 
 
 const Home = () => {
 
-  const url = 'https://api.themoviedb.org/3/movie/533535/videos?api_key=4f621b443c07a81c9346a04256502bfe';
-    fetch(url)
-    .then(res => res.json())
-    .then(json => console.log(json))
+  // const url = 'https://api.themoviedb.org/3/discover/movie?api_key=4f621b443c07a81c9346a04256502bfe';
+  //   fetch(url)
+  //   .then(res => res.json())
+  //   .then(json => console.log(json))
 
   const [modal,setModal] = React.useState(0)
   const [cont,setCont] = React.useState(null);
@@ -41,6 +42,8 @@ const Home = () => {
         </div>
       </div>
     )
+  }else{
+    return(<Carregando/>)
   }
   
 }

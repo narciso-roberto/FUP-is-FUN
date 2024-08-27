@@ -3,8 +3,8 @@ import style from './modal.module.css'
 import Trailer from './Trailer'
 
 
+
 const Modal = ({movie,exit}) => {
-    // console.log(movie)
 
     const [trailer,setTrailer] = useState(false);
 
@@ -14,7 +14,7 @@ const Modal = ({movie,exit}) => {
         
         <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt="" />
 
-        <Trailer visible={trailer} setVisible={setTrailer} />
+        <Trailer visible={trailer} setVisible={setTrailer} idTrailer={movie.id}/>
 
         <section className={style.desc}>
 
