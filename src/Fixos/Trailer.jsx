@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './modal.module.css'
-import Carregando from './Carregando';
+
 
 const Trailer = ({visible,setVisible,idTrailer}) => {
   const [trailer,setTrailer] = React.useState(null);

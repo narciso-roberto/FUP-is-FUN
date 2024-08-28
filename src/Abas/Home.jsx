@@ -17,10 +17,12 @@ const Home = () => {
   const [modal,setModal] = React.useState(0)
   const [cont,setCont] = React.useState(null);
 
-  const {movies} = React.useContext(GlobalContext)
+  let {movies} = React.useContext(GlobalContext)
 
+  movies=null;
+  // ajeitar isso nao tem porque ele n retornar ussa estrutura, era pra ele deixar de retornar so a section caso os itens n estejam ai....
+  // o carregamento vai fazer mais sentido
   if(movies){
-    // console.log(movies['results'][0])
     return (
       <div className={style.mainBg}>
         <div className={style.main}>
@@ -32,7 +34,6 @@ const Home = () => {
                 <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}/>
                 <div className={style.desc}>
                   <p className={style.titulo}>{movie.title}</p>
-                  {/* <p className={style.overview}>{movie.overview}</p> */}
                   <Stars nota={movie.vote_average}/>
                 </div>
               </div>)

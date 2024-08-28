@@ -1,7 +1,6 @@
 .loadingBG{
     background-color: #0d253f;
     display: flex;
-    height: 90vh;
     justify-content: center;
     align-items: center;
 }
@@ -13,7 +12,7 @@
     height: 50px;
     width: 50px;
     border-radius: 100%;
-    animation: load 1s infinite;
+    animation: load 0.5s infinite;
 }
 
 @keyframes load {
