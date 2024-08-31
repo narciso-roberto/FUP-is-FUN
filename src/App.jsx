@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from './Fixos/Footer.jsx';
-import Header from './Fixos/Header.jsx';
+import Footer from './Componentes/Footer.jsx';
+import Header from './Componentes/Header.jsx';
 import Home from './Abas/Home.jsx';
 import { EncapContext } from './Contexto/ContextoGeral.jsx';
 

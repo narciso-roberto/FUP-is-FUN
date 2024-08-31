@@ -5,10 +5,15 @@ body,p,h1,h2,h3,li,ul,a,button{
     text-decoration: none;
     border: none;
 }
+
+body{
+    color: #ffffff;
+}
+
 *{
-    color: #01b4e4;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 img{
     display: block;
     max-width: 100%;

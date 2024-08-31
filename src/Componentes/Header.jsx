@@ -9,10 +9,10 @@ const Header = () => {
       <div className={styles.header}>
         <SvgComponent width="250px"/>
         <ul className={styles.btnList}>
-          <li><Link to="./">Filmes</Link></li>
+          <li><Link to="./">FILMES</Link></li>
           {/* https://api.themoviedb.org/3/movie/popular */}
-          <li><Link to="./">Atores</Link></li>
-          <li><Link to="./">Favoritos</Link></li>
+          <li><Link to="./">ATORES</Link></li>
+          <li><Link to="./">FAVORITOS</Link></li>
         </ul>
       </div>
     </div>

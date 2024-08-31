@@ -3,14 +3,24 @@
 }
 
 .main{
-    max-width: 1800px;
+    /* max-width: 1800px;
     margin: 0px auto;
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr; */
+    width: 100%;
+    margin: 0px auto;
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .main .titlejajaterminaresseaki{
     color: #fff;
     font-size: 3rem;
     padding: 50px 0px;
+    justify-self: center;
+    align-self: start;
 }
 
 .movies{
@@ -22,12 +32,12 @@
     gap: 50px;
 }
 
-.movies img{
+.movies .banner{
     border-radius: 10px;
     filter: brightness(85%);
 }
 
-.movies img:hover{
+.movies .banner:hover{
     animation: 0.3s forwards brilho;
 }
 
@@ -64,7 +74,7 @@
 .desc .titulo{
     font-size: 1.3rem;
     font-weight: bold;
-    color: #fff;
+    color:  #01b4e4;
     margin-bottom: 5px;
 }
 
@@ -76,5 +86,6 @@
     display: flex;
     gap: 5px;
     margin-bottom: 5px;
+    color: #b3eeff;
 }
 

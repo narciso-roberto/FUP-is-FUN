@@ -1,11 +1,17 @@
 .loadingBG{
-    background-color: #0d253f;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.582);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .loading{
+    justify-content: center;
     display: inline-block;
     border: 8px solid #c6e1ff;
     border-top-color: #01b4e4;

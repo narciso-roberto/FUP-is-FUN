@@ -9,15 +9,15 @@ const Modal = ({movie,exit}) => {
   const [trailer,setTrailer] = useState(false);
   const [show,setShow] = useState(false)
 
-  console.log(show)
   return (
     <div className={style.modalBG} onClick={(e) => {{e.currentTarget == e.target ? exit(): null}}}>
       <div className={style.modal}>
         
         <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt="" onLoad={() => {setShow(!show)}}/>
 
+        {/* shows the information when the image is totally loaded*/}
         {show ? (<>
-          <Trailer visible={trailer} setVisible={setTrailer} idTrailer={movie.id}/>
+          {trailer && <Trailer visible={trailer} setVisible={setTrailer} idTrailer={movie.id}/>}
 
           <section className={style.desc}>
   
