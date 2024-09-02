@@ -1,0 +1,58 @@
+.movies{
+    display: flex;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.movies .banner{
+    border-radius: 10px;
+    filter: brightness(85%);
+}
+
+.movies .banner:hover{
+    animation: 0.3s forwards brilho;
+}
+
+@keyframes brilho {
+    from {
+        /* box-shadow: none;
+        filter: brightness(85%); */
+    }
+  
+    to {
+        box-shadow: 0px 0px 40px 15px #ffffff28;
+        filter: brightness(110%);
+    }
+  }
+
+.movies .card{
+    display: grid;
+    grid-template-columns: 250px;
+    position: relative;
+}
+
+
+.desc{
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.808);
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.desc .titulo{
+    font-size: 1.3rem;
+    font-weight: bold;
+    color:  #01b4e4;
+    margin-bottom: 5px;
+}
+
+.desc .overview{
+    color: #fff;
+}

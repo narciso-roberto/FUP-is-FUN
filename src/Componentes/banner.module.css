@@ -70,3 +70,24 @@
     border-radius: 5px;
 }
 
+@media only screen and (max-width: 1200px) {
+    .desc p {
+        font-size: 1.2rem;
+        line-height: 1.2;
+        max-width: 400px;
+    }
+
+    .desc h1{
+        font-size: 3rem;
+    }
+
+    .desc{
+        margin-left: 5%;
+        gap: 10px;
+    }
+
+    .skipBack .bannerBtn{
+        font-size: 40px;
+    }
+}
+

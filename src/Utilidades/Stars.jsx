@@ -1,5 +1,5 @@
 import React from 'react'
-import style from '../Abas/home.module.css'
+import style from './stars.module.css'
 
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";

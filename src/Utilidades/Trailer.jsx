@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './modal.module.css'
+import style from './trailer.module.css'
 import useFetch from '../Hooks/useFetch';
 import Carregando from './Carregando';
 

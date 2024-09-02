@@ -14,8 +14,8 @@ const Banner = ({movies}) => {
       
       // console.log("sumindo")
       setTimeout(() => {
-        setFade(true)
         slide<19 ? setSlide(slide+1) : setSlide(0)
+        setFade(true)
         },1000)
       },6000)
       return () => {clearInterval(mudar)}

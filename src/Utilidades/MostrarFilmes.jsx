@@ -1,5 +1,5 @@
 import React from 'react'
-import style from '../Abas/home.module.css'
+import style from './mostrarfilmes.module.css'
 import Stars from '../Utilidades/Stars';
 import Modal from '../Utilidades/Modal';
 

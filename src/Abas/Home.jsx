@@ -13,6 +13,7 @@ const Home = () => {
     request('https://api.themoviedb.org/3/discover/movie?api_key=4f621b443c07a81c9346a04256502bfe')
   },[])
 
+
   let movies=null;
   dados ? movies=dados['results']: ''
 

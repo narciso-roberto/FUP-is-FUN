@@ -22,7 +22,6 @@
 .modal img{
     width: 100%; 
     border-radius: 10px;
-
 }
 
 .desc{
@@ -34,21 +33,22 @@
     background: linear-gradient(to bottom, rgba(13, 37, 63, 0.418) 0%, rgba(13, 37, 63, 1) 60%);
     display: grid;
     grid-template-columns: 1fr 200px;
+    gap: 20px;
 }
 
-.desc .infos h1{
+.infos h1{
     font-size: 3rem;
     margin-bottom: 10px;
     color: #fff;
 }
 
-.desc .infos p{
+.infos p{
     font-size: 1.3rem;
     color: #e2e2e2;
     max-width: 700px;
 }
 
-.desc .acoes{
+.acoes{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,7 +57,7 @@
 
 }
 
-.desc .acoes button{
+.acoes button{
     color: #fff;
     padding: 10px 30px;
     font-size: 1.5rem;
@@ -68,34 +68,41 @@
 
 }
 
-.desc .acoes .trailer{
+.acoes .btnTrailer{
     background-color: #70bb84;
     color: #ffffff;
     font-weight: normal;
 
 }
 
-.frame{
-    position: absolute;
-    top: 0px;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    justify-content: center;
-    align-items: center;
-    background-color: #00000050;
+@media only screen and (max-width: 980px) {
+    .desc{
+        padding: 25px 35px;
+        grid-template-columns: 1fr 180px;
+    }
+    .infos h1{
+        font-size: 2.5rem;
+        margin-bottom: 5px;
+    }
+    .infos p{
+        font-size: 1.1rem;
+    }
+    .acoes button{
+        padding: 10px 20px;
+        font-size: 1.2rem;
+    
+    }
 }
 
-.frame iframe{
-    width: 95%;
-    height: 85%;
-    border: none;
-}
+@media only screen and (max-width: 800px) {
+    .desc{
+        grid-template-columns: 1fr;
+    }
 
-.borderFrame{
-    border: 5px solid #1f1f1f !important;
-    border-radius: 5px;
+    .modal{
+        width: 500px;
+    }
+    
 }
 
 
