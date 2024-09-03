@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './home.module.css'
 import Carregando from '../Utilidades/Carregando';
-import MostrarFilmes from '../Utilidades/MostrarFilmes';
+import MostrarFilmes from '../Utilidades/ExibirFilmes/MostrarFilmes';
 import useFetch from '../Hooks/useFetch';
 import Banner from '../Componentes/Banner';
 

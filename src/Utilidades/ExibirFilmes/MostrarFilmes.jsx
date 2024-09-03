@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './mostrarfilmes.module.css'
-import Stars from '../Utilidades/Stars';
-import Modal from '../Utilidades/Modal';
+import Stars from './Stars';
+import Modal from '../Modal/Modal';
 
 const MostrarFilmes = ({movies}) => {
 

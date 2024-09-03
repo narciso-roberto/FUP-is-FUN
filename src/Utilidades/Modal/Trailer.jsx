@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './trailer.module.css'
-import useFetch from '../Hooks/useFetch';
-import Carregando from './Carregando';
+import useFetch from '../../Hooks/useFetch';
+import Carregando from '../Carregando';
 
 const Trailer = ({visible,setVisible,idTrailer}) => {
   // const [trailer,setTrailer] = React.useState(null);
