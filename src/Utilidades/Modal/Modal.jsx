@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
-import style from './modal.module.css'
-import Trailer from './Trailer'
-import Carregando from '../Carregando'
-import Favoritar from '../Notificacoes/Favoritar'
-import { FiHeart } from "react-icons/fi";
+import React, { useState } from 'react';
+import style from './modal.module.css';
+import Trailer from './Trailer';
+import Carregando from '../Carregando';
+import Favoritar from '../Notificacoes/Favoritar';
+import { FaHeart } from "react-icons/fa";
+import { GlobalContext } from '../../Contexto/ContextoGeral';
+import Button from '../Button';
 
 const Modal = ({movie,exit}) => {
 
+  const {favoritos,setFavoritos} = React.useContext(GlobalContext)
+  
+
   const [size,setSize] = useState([window.innerWidth,window.innerHeight]);
   const [trailer,setTrailer] = useState(false);
-  const [show,setShow] = useState(false)
-  const [favorito,setFavorito] = useState(false);
+  const [mostrarTexto,setMostrarTexto] = useState(false)
+  const [notificacao,setNotificacao] = useState('');
+  
 
   React.useEffect(() => {
 
@@ -21,20 +27,29 @@ const Modal = ({movie,exit}) => {
     window.addEventListener('resize',handleResize)
 
 
-
     return () => {window.removeEventListener('resize',handleResize)};
   },[size])
 
+  const clickFavorito = (btn) => {
+    if(favoritos.includes(movie.original_title)){
+      btn.currentTarget.classList.remove(`${style.selected}`);
+      setNotificacao('Voce desfavoritou esse filme');
+      setFavoritos(favoritos.filter((e) => { return e != movie.original_title}))
 
+    }else{
+      btn.currentTarget.classList.add(`${style.selected}`);
+      setNotificacao('Voce favoritou esse filme');
+      setFavoritos([...favoritos,movie.original_title])
+    }
+  }
+  
   return (
     <div className={style.modalBG} onClick={(e) => {{e.currentTarget == e.target ? exit(): null}}} >
       <div className={style.modal}>
         
-        <img src={`https://image.tmdb.org/t/p/original/${movie['backdrop_path']}`} alt="" onLoad={() => {setShow(true)}}/>
+        <img src={`https://image.tmdb.org/t/p/original/${movie['backdrop_path']}`} alt="" onLoad={() => {setMostrarTexto(true)}}/>
 
-        {/* backdrop_path / poster_path */}
-        {/* shows the information when the image is totally loaded*/}
-        {show ? (<>
+        {mostrarTexto ? (<>
           {trailer && <Trailer visible={trailer} setVisible={setTrailer} idTrailer={movie.id}/>}
 
           <section className={style.desc}>
@@ -44,12 +59,16 @@ const Modal = ({movie,exit}) => {
                   <p>{ size[0] > 900 ? movie.overview : movie.overview.match(/^((?:\S+\s+){0,29}\S+)/)[0] + '...' }</p>
               </div>
               <div className={style.acoes}>
-                  <button onClick={() => {setFavorito(true)}}>Favoritar <FiHeart fontSize={'1.5rem'}/></button>
-                  <button className={style.btnTrailer} onClick={() => {setTrailer(!trailer)}}>Ver Trailer</button>
+
+              <Button classe={style.btnFavorito} onClick={clickFavorito}>
+                Favoritar <FaHeart color={favoritos.includes(movie.original_title)? '#eb4f7e' : ""} fontSize={'1.5rem'}/>
+              </Button>
+
+                <Button classe={style.btnTrailer} onClick={() => {setTrailer(!trailer)}} msg={'Ver Trailer'}/>
               </div>
           </section>
           </>) : <Carregando/>}
-          {favorito && <Favoritar setFavorito={setFavorito}/>}
+          {notificacao && <Favoritar setNotificacao={setNotificacao} notificacao={notificacao}/>}
       </div>
     </div>
   )

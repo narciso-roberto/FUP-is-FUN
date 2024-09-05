@@ -1,13 +1,12 @@
 import React from 'react'
 import style from './favoritar.module.css'
 
-const Favoritar = ({setFavorito}) => {
+const Favoritar = ({setNotificacao,notificacao}) => {
 
     React.useEffect(() => {
         const intervalo = setTimeout(() => {
-            setFavorito(false)
+            setNotificacao(false)
         },2400)
-        console.log(1)
 
         return () => {clearTimeout(intervalo);}
     },[])
@@ -15,7 +14,7 @@ const Favoritar = ({setFavorito}) => {
   return (
     <div className={style.notf}>
         <div className={style.notfMsg}>
-            <h1>Voce favoritou esse filme</h1>
+            <h1>{notificacao}</h1>
         </div>
     </div>
   )

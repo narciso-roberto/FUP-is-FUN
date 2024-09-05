@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
     
 }
 
@@ -72,7 +73,17 @@
 
 }
 
-.acoes .btnTrailer{
+
+.btnFavorito:hover svg{
+    color: #eb4f7e;
+}
+
+.selected:hover svg{
+    color: #fff !important;
+}
+
+
+.btnTrailer{
     background-color: #70bb84;
     color: #ffffff;
     font-weight: normal;

@@ -56,3 +56,10 @@
 .desc .overview{
     color: #fff;
 }
+
+.favoritos{
+    position: absolute;
+    z-index: 1;
+    right: 0px;
+    padding: 5px 10px;
+}
