@@ -1,0 +1,56 @@
+.favListBg{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.589);
+    z-index: 2;
+    display: flex;
+    justify-content: end;
+}
+
+.favList{
+    width: 500px;
+    background-color: #0d253f;
+    overflow: auto;
+    padding: 0px 30px;
+}
+
+.filmes{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.cartFilme{
+    position: relative;
+}
+
+.delet{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 10px 0px;
+    background-color: rgb(255, 61, 61);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

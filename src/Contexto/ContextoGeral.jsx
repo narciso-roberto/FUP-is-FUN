@@ -7,8 +7,9 @@ export const EncapContext = ({children}) => {
     const [movies,setMovies] = React.useState()
     const [favoritos,setFavoritos] = React.useState([])
     
+    // CRIAR UM REMOVER_FAVORITO TAMO PRECISANDO, ao inves de criar no modal, cria aqui e dps manda pro modal usar =)
     
-    
+
     React.useEffect(() => {
       if(localStorage.favoritos){
         setFavoritos(localStorage.favoritos.split(','))

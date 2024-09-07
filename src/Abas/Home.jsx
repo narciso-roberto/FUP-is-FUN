@@ -17,7 +17,6 @@ const Home = () => {
   let movies=null;
   dados ? movies=dados['results']: ''
 
-  // console.log(dados['results'][0]['backdrop_path'])
     return (
       <div className={style.mainBg}>
         <div className={style.main}>
