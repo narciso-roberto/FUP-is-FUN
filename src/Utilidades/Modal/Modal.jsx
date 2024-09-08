@@ -9,7 +9,7 @@ import Button from '../Button';
 
 const Modal = ({movie,exit}) => {
 
-  const {favoritos,setFavoritos} = React.useContext(GlobalContext)
+  const {favoritos,REMOVER_FAVORITO,ADICIONAR_FAVORITO} = React.useContext(GlobalContext)
   
 
   const [size,setSize] = useState([window.innerWidth,window.innerHeight]);
@@ -30,21 +30,22 @@ const Modal = ({movie,exit}) => {
     return () => {window.removeEventListener('resize',handleResize)};
   },[size])
 
-  const clickFavorito = (btn) => {
+  const clickFavorito = ({currentTarget}) => {
     if(favoritos.includes(movie.original_title)){
-      btn.currentTarget.classList.remove(`${style.selected}`);
+      currentTarget.classList.remove(`${style.selected}`);
       setNotificacao('Voce desfavoritou esse filme');
-      setFavoritos(favoritos.filter((e) => { return e != movie.original_title}))
+      REMOVER_FAVORITO(movie.original_title)
 
     }else{
-      btn.currentTarget.classList.add(`${style.selected}`);
+      currentTarget.classList.add(`${style.selected}`);
       setNotificacao('Voce favoritou esse filme');
-      setFavoritos([...favoritos,movie.original_title])
+      ADICIONAR_FAVORITO(movie.original_title)
+
     }
   }
   
   return (
-    <div className={style.modalBG} onClick={(e) => {{e.currentTarget == e.target ? exit(): null}}} >
+    <div className={style.modalBG} onClick={(event) => {{event.currentTarget == event.target ? exit(): null}}} >
       <div className={style.modal}>
         
         <img src={`https://image.tmdb.org/t/p/original/${movie['backdrop_path']}`} alt="" onLoad={() => {setMostrarTexto(true)}}/>

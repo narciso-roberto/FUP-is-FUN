@@ -7,8 +7,6 @@ export const EncapContext = ({children}) => {
     const [movies,setMovies] = React.useState()
     const [favoritos,setFavoritos] = React.useState([])
     
-    // CRIAR UM REMOVER_FAVORITO TAMO PRECISANDO, ao inves de criar no modal, cria aqui e dps manda pro modal usar =)
-    
 
     React.useEffect(() => {
       if(localStorage.favoritos){
@@ -21,6 +19,16 @@ export const EncapContext = ({children}) => {
       localStorage.favoritos = favoritos;
     },[favoritos])
 
+
+
+    const REMOVER_FAVORITO = (alvo) => {
+        setFavoritos(favoritos.filter((filme) => { return filme != alvo}))
+    }
+
+    const ADICIONAR_FAVORITO = (alvo) => {
+        setFavoritos([...favoritos,alvo])
+    }
+
     
     React.useEffect(()=>{
         const url = 'https://api.themoviedb.org/3/discover/movie?api_key=4f621b443c07a81c9346a04256502bfe';
@@ -31,7 +39,7 @@ export const EncapContext = ({children}) => {
 
 
   return (
-    <GlobalContext.Provider value={{movies,favoritos,setFavoritos}}>
+    <GlobalContext.Provider value={{movies,favoritos,setFavoritos,REMOVER_FAVORITO,ADICIONAR_FAVORITO}}>
         {children}
     </GlobalContext.Provider>
   )
