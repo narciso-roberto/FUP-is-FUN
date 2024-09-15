@@ -4,6 +4,8 @@ import Carregando from '../Utilidades/Carregando';
 import MostrarFilmes from '../Utilidades/ExibirFilmes/MostrarFilmes';
 import useFetch from '../Hooks/useFetch';
 import Banner from '../Componentes/Banner';
+import Footer from '../Componentes/Footer.jsx';
+import Header from '../Componentes/Header.jsx';
 
 const Home = () => {
 
@@ -19,11 +21,13 @@ const Home = () => {
 
     return (
       <div className={style.mainBg}>
-        <div className={style.main}>
-          {dados ? <Banner movies={movies}/> : <Carregando/>}
-          <h1 className={style.titlejajaterminaresseaki}>Mais relevantes.</h1>
-          {dados ? <MostrarFilmes movies={dados}/> : ''}
-        </div>
+        <Header/>
+          <div className={style.main}>
+            {dados ? <Banner movies={movies}/> : <Carregando/>}
+            <h1 className={style.titlejajaterminaresseaki}>Mais relevantes.</h1>
+            {dados ? <MostrarFilmes movies={dados}/> : ''}
+          </div>
+        <Footer/>
       </div>
     )
   
