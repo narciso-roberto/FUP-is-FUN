@@ -18,9 +18,14 @@
 }
 
 .btnList a{
-    padding: 20px 15px;
+    padding: 15px 20px;
     display: block;
     color: #fff;
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+.sair{
+    background-color: rgba(243, 54, 54, 0.479);
+    border-radius: 10px;
 }

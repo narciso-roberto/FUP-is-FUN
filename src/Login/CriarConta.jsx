@@ -3,6 +3,8 @@ import style from './login.module.css';
 import { useNavigate } from 'react-router-dom';
 import useLogin from './useLogin.jsx';
 import Carregando from '../Utilidades/Carregando'
+import useForm from '../Hooks/useForm'
+import Input from '../Login/Input.jsx'
 
 
 
@@ -10,59 +12,41 @@ const SingUp = () => {
 
     const navegar = useNavigate()
 
-    const [senha, setSenha] = React.useState('1234567');
-    const [email, setEmail] = React.useState('teste12@gmail.com');
-    const [nome, setNome] = React.useState('teste');
-    const [erros,setErros] = React.useState({email:false,senha:false}); //true = tem erro
-    
+    const nome = useForm()
+    const email = useForm('email')
+    const senha = useForm('senha')
 
-    const { criarUsuario,validarDados,carregando } = useLogin();
+
+
+    const { criarUsuario,carregando,erro } = useLogin();
+
+    // arrumar isso dps, fazer aquele hook receber apenas um tipo de valor, sem erro = tudo certo 
 
     const handleRegister = async (event) => {
         event.preventDefault();
 
-        if(validarDados(email,'email') && validarDados(senha,'senha')){
-          await criarUsuario({nome,email,senha})
+        if(!senha.validate() && !email.validate()){
+          await criarUsuario({nome:nome.value,email:email.value,senha:senha.value})
         }
-        setErros({email:!validarDados(email,'email'),senha:!validarDados(senha,'senha')})
-        
-        
-      };
 
+      };
 
   return (
     <div className={style.loginBG}>
       <div className={style.login}>
         <h1>FAÇA SEU REGISTRO</h1>
         <form>
-        <label htmlFor="email">Email</label>
-        <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-        />
-        {erros['email'] && 'email invalido'}
-        
 
-        <label htmlFor="senha">Senha</label>
-        <input
-            type="password"
-            id="senha"
-            value={senha}
-            onChange={(event) => setSenha(event.target.value)}
-            />
-            {erros['senha'] && <span>Digite uma senha com pelo menos 6 numeros e uma letra</span>}
+        <Input type="email" id="email" label={'Email'} {...email}/>
+        <span>{email.erro}</span>
 
-        <label htmlFor="senha">Nome</label>
-        <input
-            type="text"
-            id="nome"
-            value={nome}
-            onChange={(event) => setNome(event.target.value)}
-        />
+        <Input type="password" id="senha" label={'Senha'} {...senha}/>
+        <span>{senha.erro}</span>
 
-       
+        <Input type="text" id="nome" label={'Nome'} {...nome}/>
+        <span>{erro}</span>
+
+
         </form>
       <button onClick={(event) => {handleRegister(event)}}>Registrar-se</button>
       <button onClick={() => {navegar('/')}}>Ja sou usuario</button>

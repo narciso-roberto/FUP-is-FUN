@@ -3,7 +3,7 @@ import style from './banner.module.css'
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 
-const Banner = ({movies}) => {
+const Banner = ({movies,setBanner}) => {
 
   const [slide,setSlide] = React.useState(0);
   const [fade,setFade] = React.useState(true);
@@ -24,13 +24,13 @@ const Banner = ({movies}) => {
 
 
 
-
   let movie = movies[slide];
-  return (
-    <div className={style.banner}>
+    return (
+    <div className={style.banner} onLoad={() => {console.log(1)}}>
         <img
         className={fade ? style.fadeIn :style.fadeOut}
         src={`https://image.tmdb.org/t/p/original/${movie['backdrop_path']}`}
+        onLoad={() => {setBanner(true)}}
         />
 
         

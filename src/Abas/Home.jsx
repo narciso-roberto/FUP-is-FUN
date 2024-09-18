@@ -10,6 +10,7 @@ import Header from '../Componentes/Header.jsx';
 const Home = () => {
 
   const {dados,request} = useFetch()
+  const [banner,setBanner] = React.useState(null)
 
   React.useEffect(() => {
     request('https://api.themoviedb.org/3/discover/movie?api_key=4f621b443c07a81c9346a04256502bfe')
@@ -23,9 +24,9 @@ const Home = () => {
       <div className={style.mainBg}>
         <Header/>
           <div className={style.main}>
-            {dados ? <Banner movies={movies}/> : <Carregando/>}
+            {dados ? <Banner movies={movies} setBanner={setBanner}/> : <Carregando/>}
             <h1 className={style.titlejajaterminaresseaki}>Mais relevantes.</h1>
-            {dados ? <MostrarFilmes movies={dados}/> : ''}
+            {dados && banner ? <MostrarFilmes movies={dados}/> : ''}
           </div>
         <Footer/>
       </div>

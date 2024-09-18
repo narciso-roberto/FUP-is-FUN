@@ -12,6 +12,10 @@ const Header = () => {
     setFavList(!favList)
   }
 
+  const handleLogOut= () => {
+    localStorage.token = '';
+  }
+
   favList ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto"
 
   return (
@@ -23,6 +27,7 @@ const Header = () => {
           {/* https://api.themoviedb.org/3/movie/popular */}
           <li><Link to="./">ATORES</Link></li>
           <li onClick={handleClick}><Link to="./">FAVORITOS</Link></li>
+          <li onClick={handleLogOut} className={styles.sair}><Link to="/">SAIR</Link></li>
           {favList && <ListFavoritos exit={setFavList}/>}
         </ul>
       </div>

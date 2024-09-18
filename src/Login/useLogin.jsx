@@ -5,33 +5,32 @@ import { auth,bd} from '../firebase';
 import { collection, doc, setDoc, addDoc, getDoc } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 
+// Erro ao registrar: Firebase: Error (auth/invalid-email).
+// Erro ao registrar: Firebase: Error (auth/email-already-in-use).
 
-const ragexs = {
-    senha: {
-      regex: /^(?=.*[A-Za-z])(?=.*\d{6,})[A-Za-z\d]+$/,
-    },
-    email: {
-      regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    },
-    
-  };
-
+// const errorFirebase={
+//   "auth/invalid-email": ,
+// }
 
 const useLogin = () => {
 
     const navegar = useNavigate()
 
-    const [carregando,setCarregando] = React.useState(false);
+    const [carregando,setCarregando] = React.useState(null);
+    const [erro,setErro] = React.useState(null);
+
 
     React.useEffect(() => {
       if(localStorage.token){
         navegar('/home')
       }
-    },[])
+    },[navegar])
 
     const logarUsuario = async (dadosUsuario) => {
+
       try {
         setCarregando(true)
+        setErro(null)
         const userCredential = await signInWithEmailAndPassword(auth, dadosUsuario.email, dadosUsuario.senha);
         // const docSnap = await getDoc(doc(bd, "usuarios",userCredential.user.uid))
         localStorage.token = userCredential.user['uid'];
@@ -39,17 +38,13 @@ const useLogin = () => {
         navegar('/home')
       } catch (error) {
         setCarregando(false)
-        console.error('Erro ao registrar:', error.message);
+        setErro("Dados incorretos")
       }finally{
         setCarregando(false)
       }
 
     }
     
-    const validarDados = (dado,tipo) => {
-        return ragexs[`${tipo}`].regex.test(dado)
-    }
-
     const criarUsuario = async (dados) => {
       try {
         setCarregando(true)
@@ -59,13 +54,13 @@ const useLogin = () => {
         navegar('/home')
         console.log('Usuário registrado:');
       } catch (error) {
-        console.error('Erro ao registrar:', error.message);
+        if (error.code == "auth/email-already-in-use") setErro('Email ja cadastrado')
       }finally{
         setCarregando(false)
       }
     }
 
-    return { logarUsuario, criarUsuario,validarDados,carregando }
+    return { logarUsuario, criarUsuario,carregando,erro }
 }
 
 export default useLogin
