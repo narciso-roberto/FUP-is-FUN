@@ -20,11 +20,11 @@ const SingUp = () => {
 
     const { criarUsuario,carregando,erro } = useLogin();
 
-    // arrumar isso dps, fazer aquele hook receber apenas um tipo de valor, sem erro = tudo certo 
 
     const handleRegister = async (event) => {
         event.preventDefault();
 
+        email.validate()
         if(!senha.validate() && !email.validate()){
           await criarUsuario({nome:nome.value,email:email.value,senha:senha.value})
         }
