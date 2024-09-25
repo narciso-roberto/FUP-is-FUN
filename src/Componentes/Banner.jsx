@@ -26,7 +26,7 @@ const Banner = ({movies,setBanner}) => {
 
   let movie = movies[slide];
     return (
-    <div className={style.banner} onLoad={() => {console.log(1)}}>
+    <div className={style.banner} >
         <img
         className={fade ? style.fadeIn :style.fadeOut}
         src={`https://image.tmdb.org/t/p/original/${movie['backdrop_path']}`}
