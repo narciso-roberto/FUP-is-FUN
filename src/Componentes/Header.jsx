@@ -13,7 +13,7 @@ const Header = () => {
   React.useEffect(() => {
 
     const handleResize = () => {
-      setMenuMobile(window.innerWidth <= 880)
+      setMenuMobile(window.innerWidth <= 950)
     }
     
     window.addEventListener('resize',handleResize)
@@ -21,13 +21,13 @@ const Header = () => {
     return () => {window.removeEventListener('resize',handleResize)};
   },[menuMobile])
 
-  console.log(menuMobile)
-
   const handleClick = () => {
     setFavList(true)
   }
 
   const handleLogOut= () => {
+    localStorage.favoritos = '';
+    localStorage.nome = '';
     localStorage.token = '';
   }
 

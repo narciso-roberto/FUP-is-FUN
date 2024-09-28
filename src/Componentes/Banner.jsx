@@ -12,7 +12,6 @@ const Banner = ({movies,setBanner}) => {
     const mudar = setInterval(() => {
       setFade(false)
       
-      // console.log("sumindo")
       setTimeout(() => {
         slide<19 ? setSlide(slide+1) : setSlide(0)
         setFade(true)
@@ -35,7 +34,7 @@ const Banner = ({movies,setBanner}) => {
 
         
         <div className={style.skipBack}>
-          <button className={style.bannerBtn} disabled={!fade} onClick={() => {
+          <button className={`${style.bannerBtn} ${style.back}`} disabled={!fade} onClick={() => {
             setFade(false)
             setTimeout(() => {
             setSlide(slide-1)
@@ -49,7 +48,7 @@ const Banner = ({movies,setBanner}) => {
             <button>COMPRAR</button>
           </div>
 
-          <button className={style.bannerBtn} disabled={!fade} onClick={() => {
+          <button className={`${style.bannerBtn} ${style.forward}`} disabled={!fade} onClick={() => {
             setFade(false)
             setTimeout(() => {
             setSlide(slide+1)

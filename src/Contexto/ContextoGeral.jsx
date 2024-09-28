@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { bd} from '../firebase'; 
+import { doc,getDoc,updateDoc } from "firebase/firestore";
 
 
 export const GlobalContext = React.createContext();
@@ -8,18 +10,31 @@ export const EncapContext = ({children}) => {
 
     const [movies,setMovies] = React.useState()
     const [favoritos,setFavoritos] = React.useState([])
-    
+    const [sim,setsim] = React.useState(false)
 
-    React.useEffect(() => {
-      if(localStorage.favoritos){
-        setFavoritos(localStorage.favoritos.split(','))
-
+      const fetchUser = async (uid) => {
+        const docRef = await getDoc(doc(bd, "usuarios", uid));
+        localStorage.nome = docRef.data().nome
       }
-    },[])
+
+
+      const buscarFavoritos = async () => {
+        const user = (await getDoc(doc(bd, "usuarios", localStorage.token))).data();
+        setFavoritos(user.favoritos)
+        setsim(true)
+      }
+
 
     React.useEffect(() => {
-      localStorage.favoritos = favoritos;
+      const setarFavoritos = async () => {
+        await updateDoc(doc(bd, "usuarios", localStorage.token),{favoritos: favoritos})
+      }
+        if(sim){
+          setarFavoritos() 
+        }
+
     },[favoritos])
+
 
 
 
@@ -41,7 +56,16 @@ export const EncapContext = ({children}) => {
 
 
   return (
-    <GlobalContext.Provider value={{movies,favoritos,setFavoritos,REMOVER_FAVORITO,ADICIONAR_FAVORITO}}>
+    <GlobalContext.Provider value={{
+    movies,
+    favoritos,
+    setFavoritos,
+    REMOVER_FAVORITO,
+    ADICIONAR_FAVORITO,
+    fetchUser,
+    buscarFavoritos
+    }}>
+
         {children}
     </GlobalContext.Provider>
   )

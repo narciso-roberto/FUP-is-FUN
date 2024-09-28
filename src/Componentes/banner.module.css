@@ -26,7 +26,8 @@
 
 .skipBack{
     display: grid;
-    grid-template-columns: 100px 1fr 100px;
+    grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+    /* grid-template-columns: 100px 1fr 100px; */
     position: absolute; 
     top: 0px; 
     height: 100%;
@@ -34,18 +35,26 @@
 }
 
 .skipBack .bannerBtn{
-    place-self: center;
     background-color: #ffffff00;
     cursor: pointer;
     font-size: 60px;
     color: #c4e1ff;
 }
 
+.back{
+    justify-self: start;
+    margin: 0px 20px;
+}
+
+.forward{
+    justify-self: end;
+    margin: 0px 20px;
+}
+
 .desc{
     display: flex;
     align-items: start;
     justify-content: center;
-    margin-left: 8%;
     flex-direction: column;
     gap: 20px;
 }
@@ -70,6 +79,7 @@
     border-radius: 5px;
 }
 
+
 @media only screen and (max-width: 1200px) {
     .desc p {
         font-size: 1.2rem;
@@ -82,7 +92,7 @@
     }
 
     .desc{
-        margin-left: 5%;
+        margin-left: 20px;
         gap: 10px;
     }
 
@@ -91,7 +101,7 @@
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
     .desc h1{
         font-size: 2rem;
     }

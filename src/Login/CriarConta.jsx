@@ -7,8 +7,9 @@ import useForm from '../Hooks/useForm'
 import Input from '../Login/Input.jsx'
 
 
-
 const SingUp = () => {
+
+    
 
     const navegar = useNavigate()
 

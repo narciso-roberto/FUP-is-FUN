@@ -7,6 +7,7 @@ import Banner from '../Componentes/Banner';
 import Footer from '../Componentes/Footer.jsx';
 import Header from '../Componentes/Header.jsx';
 
+
 const Home = () => {
 
   const {dados,request} = useFetch()
@@ -25,13 +26,17 @@ const Home = () => {
         <Header/>
           <div className={style.main}>
             {dados ? <Banner movies={movies} setBanner={setBanner}/> : <Carregando/>}
-            <h1 className={style.titlejajaterminaresseaki}>Mais relevantes.</h1>
+            <h1 className={style.titlejajaterminaresseaki}>Ola {localStorage.nome}, veja os mais relevantes.</h1>
             {dados && banner ? <MostrarFilmes movies={dados}/> : ''}
           </div>
         <Footer/>
       </div>
     )
   
+    // voltar em banner mdoule mais tarde
+    // concertar modal rezise hook q dispara toda hora
+    // add secao de comentarios
+    // ERRO NO CONTEXTO GERAL
   
 }
 

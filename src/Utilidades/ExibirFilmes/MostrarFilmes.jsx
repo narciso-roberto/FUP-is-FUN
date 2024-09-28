@@ -7,12 +7,16 @@ import { FaHeart } from "react-icons/fa";
 
 const MostrarFilmes = ({movies}) => {
 
-  const {favoritos} = React.useContext(GlobalContext)
+  const {favoritos,buscarFavoritos} = React.useContext(GlobalContext)
 
 
     const [movie,setMovie] = React.useState(null);
     const [modal,setModal] = React.useState(0)
     const [imgLoad, setImgLoad] = React.useState(false);
+
+    React.useEffect(() => {
+      buscarFavoritos()
+    },[])
 
   return (
     <section className={style.movies}>
