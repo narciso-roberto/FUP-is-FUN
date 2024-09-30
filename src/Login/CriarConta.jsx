@@ -27,7 +27,7 @@ const SingUp = () => {
 
         email.validate()
         if(!senha.validate() && !email.validate()){
-          await criarUsuario({nome:nome.value,email:email.value,senha:senha.value})
+          await criarUsuario({nome:nome.value,email:email.value,senha:senha.value,favoritos:[]})
         }
 
       };

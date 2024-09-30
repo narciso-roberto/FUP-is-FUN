@@ -3,7 +3,7 @@ import style from './banner.module.css'
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 
-const Banner = ({movies,setBanner}) => {
+const Banner = ({movies}) => {
 
   const [slide,setSlide] = React.useState(0);
   const [fade,setFade] = React.useState(true);
@@ -21,15 +21,11 @@ const Banner = ({movies,setBanner}) => {
   },[slide])
 
 
-
-
-  let movie = movies[slide];
     return (
     <div className={style.banner} >
         <img
         className={fade ? style.fadeIn :style.fadeOut}
-        src={`https://image.tmdb.org/t/p/original/${movie['backdrop_path']}`}
-        onLoad={() => {setBanner(true)}}
+        src={`https://image.tmdb.org/t/p/original/${movies[slide].backdrop_path}`}
         />
 
         
@@ -43,8 +39,8 @@ const Banner = ({movies,setBanner}) => {
           }}><IoIosArrowBack/></button>
 
           <div className={`${style.desc} ${fade ? style.fadeIn :style.fadeOut}`}>
-            <h1>{movie.original_title}</h1>
-            <p>{movie.overview}</p>
+            <h1>{movies[slide].original_title}</h1>
+            <p>{movies[slide].overview}</p>
             <button>COMPRAR</button>
           </div>
 

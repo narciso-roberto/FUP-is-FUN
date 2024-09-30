@@ -11,7 +11,7 @@ import { GlobalContext } from '../Contexto/ContextoGeral.jsx';
 const useLogin = () => {
 
     const navegar = useNavigate()
-    const {fetchUser,buscarFavoritos} = React.useContext(GlobalContext)
+    const {fetchUser} = React.useContext(GlobalContext)
 
     const [carregando,setCarregando] = React.useState(null);
     const [erro,setErro] = React.useState(null);
@@ -40,7 +40,6 @@ const useLogin = () => {
       }
 
     }
-    // console.log(carregando)
     const criarUsuario = async (dados) => {
       try {
         setCarregando(true)

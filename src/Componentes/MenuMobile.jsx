@@ -1,14 +1,20 @@
 import React from 'react'
 import styles from './menumobile.module.css'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+
 
 const MenuMobile = () => {
 
     const [open,setOpen] = React.useState(false)
+    const navegar = useNavigate()
 
     const handleLogOut= () => {
-        localStorage.token = '';
-      }
+      localStorage.favoritos = '';
+      localStorage.nome = '';
+      localStorage.token = '';
+      navegar('/');
+    }
 
     const handleClick = () => {
         setOpen(!open)

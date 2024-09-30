@@ -13,7 +13,7 @@ const Header = () => {
   React.useEffect(() => {
 
     const handleResize = () => {
-      setMenuMobile(window.innerWidth <= 950)
+      setMenuMobile(window.innerWidth <= 880)
     }
     
     window.addEventListener('resize',handleResize)
